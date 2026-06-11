@@ -14,7 +14,7 @@ print("Libraries loaded.")
 
 # ====================================
 
-df = pd.read_csv("Export.csv", skiprows=1)  # อ่านข้อมูลจากไฟล์ CSV
+df = pd.read_csv("D:\Hackathon-06\Export.csv", skiprows=1)  # อ่านข้อมูลจากไฟล์ CSV
 print(df.shape)  # แสดงขนาดของ DataFrame
 print(df.info())   # แสดงข้อมูลเกี่ยวกับ DataFrame
 print(df.head())   # แสดงข้อมูล 5 แถวแรกของ DataFrame 
@@ -113,3 +113,32 @@ print(df[(df["DT_Group"].isin(["Medium", "High"])) & (df["WindSpeed_Group"].isin
 
 # ====================================3.4
 
+df.sort_values("D/T", ascending=False) # แสดงแถวที่มีค่า D/T สูงสุด 5 แถว
+df.nlargest(5, "D/T")  # แสดงแถวที่มีค่า D/T สูงสุด 5 แถว
+print("Top 5 rows with highest D/T:\n", df.sort_values("D/T", ascending=False).head())  # แสดงแถวที่มีค่า D/T สูงสุด 5 แถว
+
+# ====================================3.5
+
+df.groupby("Month")["D/T"].mean()  # แสดงค่าเฉลี่ยของ D/T ในแต่ละเดือน
+df.groupby("Month")["D/T"].agg(["mean", "median", "min", "max"])  # แสดงค่าเฉลี่ย, ค่ามัธยฐาน, ค่าต่ำสุด, และค่าสูงสุดของ D/T ในแต่ละเดือน
+print("Average D/T by Month:\n", df.groupby("Month")["D/T"].mean())  # แสดงค่าเฉลี่ยของ D/T ในแต่ละเดือน
+print("D/T statistics by Month:\n", df.groupby("Month")["D/T"].agg(["mean", "median", "min", "max"]))  # แสดงค่าเฉลี่ย, ค่ามัธยฐาน, ค่าต่ำสุด, และค่าสูงสุดของ D/T ในแต่ละเดือน
+
+# ====================================3.6
+
+month_filter = df[df["Month"].isin([2, 3, 4, 5])]
+
+month_dt = month_filter.groupby("Month")["D/T"].mean()  # คำนวณค่าเฉลี่ยของ D/T ในแต่ละเดือนที่ถูกกรอง
+
+month_dt.plot(
+    kind="bar", # กำหนดชนิดของกราฟเป็นแท่ง (bar)
+    figsize=(8,6) # กำหนดขนาดของกราฟ (width=8 นิ้ว, height=6 นิ้ว)
+)
+
+plt.title("D/T by Month")
+plt.xlabel("Month")
+plt.xticks(rotation=0) # หมุนป้ายแกน x ให้เป็นแนวตั้งเพื่อให้อ่านง่ายขึ้น
+plt.ylabel("D/T")
+plt.grid(True)
+
+plt.show()
