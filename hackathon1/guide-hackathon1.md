@@ -42,7 +42,7 @@ sort เรียงลำดับ -t เป็นการตั้งค่�
     <td width="55%" valign="top">
       <img src="clue1.png" alt="การวิเคราะห์ข้อมูล">
     </td>
-    <td width="45%" style="margin-top: 25px;">
+    <td width="45%" valign="top">
       <h2> ผลการวิเคราะห์ข้อมูล</h2>
       <p>จาก Log ด้านซ้าย เป็นพฤติกรรมของ IP 119.123.55.141:</p>
       <ul>
@@ -60,15 +60,15 @@ sort เรียงลำดับ -t เป็นการตั้งค่�
     <td width="55%" valign="top">
       <img src="clue2.png" alt="การวิเคราะห์ข้อมูล">
     </td>
-    <td width="45%" style="margin-top: 42px; ">
+    <td width="45%" style="margin-top: 20px; ">
       <h2> ผลการวิเคราะห์ข้อมูล</h2>
       <p>จาก Log ด้านซ้าย เป็นพฤติกรรมของ IP 119.123.55.141:</p>
         <ul>
-        <li style="margin-bottom: 15px;"><strong >1. พฤติกรรมการโจมตี (Attacker Behavior):</strong> 
+        <li style="margin-bottom: 35px;"><strong >1. พฤติกรรมการโจมตี (Attacker Behavior):</strong> 
             ยังคงเป็นบอตอัตโนมัติแต่รอบนี้ยิงยาวต่อเนื่องร่วม 1 ชั่วโมงเต็ม โดยพยายามเจาะระบบและเดาสุ่ม Endpoint ไปที่หน้าหลัก 
             <code>/index_.html</code>, หน้าค้นหา <code>/search_</code>, และพยายามยิงหน้าระบบจ่ายเงิน <code>/checkout_</code> แบบถถี่ๆ ซ้ำๆ
         </li>
-        <li style="margin-bottom: 15px;"><strong>2. สถานะเซิร์ฟเวอร์ล่ม 100% (Complete Downtime):</strong> 
+        <li style="margin-bottom: 35px;"><strong>2. สถานะเซิร์ฟเวอร์ล่ม 100% (Complete Downtime):</strong> 
             รอบนี้ระบบแย่กว่าเดิมมาก เพราะคอลัมน์ Status Code ไม่มีเลข 200 หลุดมาเลยแม้แต่บรรทัดเดียวข้อมูลฟ้องว่าระบบเจอ 
             <strong>HTTP 500 (Server Error)</strong> สลับกับ <strong>HTTP 504 (Gateway Timeout)</strong> ตลอดทั้งชั่วโมง แปลว่าเว็บแอปพลิเคชันหลังบ้านพังน็อกไปเรียบร้อย
         </li>
